@@ -102,4 +102,19 @@ button:hover {
   0% { transform: translateY(0) rotate(0deg); }
   100% { transform: translateY(110vh) rotate(360deg); }
 }
+.flowers::before {
+  content: "🌸 🌼 🌺 🌷 🌻";
+  position: fixed;
+  top: -10%;
+  left: 50%;
+  font-size: 26px;
+  animation: floatFlowers 12s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes floatFlowers {
+  0% { transform: translateX(-50%) translateY(0); }
+  100% { transform: translateX(-50%) translateY(120vh); }
+}
+
 
