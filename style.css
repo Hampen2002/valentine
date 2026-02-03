@@ -54,3 +54,14 @@ button {
 button:hover {
     background-color: darkred;
 }
+/* MOVING GIFT TRUCK */
+.truck {
+    width: 200px;
+    position: relative;
+    animation: drive 6s linear infinite;
+}
+
+@keyframes drive {
+    0% { left: -250px; }
+    100% { left: 100%; }
+}
