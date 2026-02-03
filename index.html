@@ -16,6 +16,29 @@
   <div class="flowers"></div>
   
 <body>
+  <audio id="bgMusic">
+  <source src="love.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const music = document.getElementById("bgMusic");
+
+  const startTime = 175; // 2:55
+  const endTime = 200;   // 3:20
+
+  music.addEventListener("loadedmetadata", () => {
+    music.currentTime = startTime;
+    music.play();
+  });
+
+  music.addEventListener("timeupdate", () => {
+    if (music.currentTime >= endTime) {
+      music.currentTime = startTime;
+      music.play();
+    }
+  });
+</script>
+  
 
   <h1>Esther 💖</h1>
   <h1>Will you be my Valentine?</h1>
