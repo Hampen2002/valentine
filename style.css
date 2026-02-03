@@ -65,3 +65,17 @@ button:hover {
     0% { left: -250px; }
     100% { left: 100%; }
 }
+/* FLOATING HEARTS */
+.hearts::before {
+    content: "💖 💗 💕 💘 💝";
+    position: fixed;
+    bottom: -10%;
+    left: 50%;
+    font-size: 24px;
+    animation: floatHearts 8s linear infinite;
+}
+
+@keyframes floatHearts {
+    0% { transform: translateX(-50%) translateY(0); opacity: 1; }
+    100% { transform: translateX(-50%) translateY(-120vh); opacity: 0; }
+}
