@@ -1,1 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine's Day ❤️</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    text-align:center;
+    background:linear-gradient(#ffdde1,#ee9ca7);
+    overflow-x:hidden;
+}
+
+/* pages */
+.page{
+    display:none;
+    padding:30px;
+    min-height:100vh;
+}
+.active{display:block;}
+
+h1{
+    font-size:48px;
+    color:#fff;
+    text-shadow:2px 2px 8px #ff4d6d;
+}
+
+button{
+    padding:12px 25px;
+    font-size:18px;
+    border:none;
+    border-radius:25px;
+    background:#ff4d6d;
+    color:white;
+    margin-top:20px;
+    cursor:pointer;
+}
+
+/* petals */
+.petal{
+    position:fixed;
+    top:-50px;
+    font-size:28px;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(360deg);
+    }
+}
+
+/* envelopes */
+.envelope-container{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.envelope{
+    font-size:80px;
+    cursor:pointer;
+}
+
+.box{
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    margin:20px auto;
+    max-width:600px;
+}
+
+/* big images */
+.big-img{
+    width:80%;
+    max-width:450px;
+    border-radius:15px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+    <h1>💖 Happy Valentine's Day 💖</h1>
+
+    <!-- ADD YOUR COUPLE GIF HERE -->
+    <img class="big-img" src="YOUR_COUPLE_GIF.gif">
+
+    <br>
+    <button onclick="nextPage(2)">Next ➜</button>
+</div>
+
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+    <h1>🎁 Here's the Gift Truck For You</h1>
+
+    <!-- ADD TRUCK GIF -->
+    <img class="big-img" src="TRUCK_GIF.gif">
+
+    <br>
+    <button onclick="nextPage(3)">Next ➜</button>
+</div>
+
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+    <h1>💌 Open The Envelope</h1>
+
+    <div class="envelope-container">
+        <div class="envelope" onclick="openBox(1)">💌</div>
+        <div class="envelope" onclick="openBox(2)">💌</div>
+        <div class="envelope" onclick="openBox(3)">💌</div>
+    </div>
+</div>
+
+
+<!-- LETTER -->
+<div class="page" id="box1">
+    <div class="box">
+        <h2>Letter For You ❤️</h2>
+        <p>
+        WRITE YOUR LETTER HERE...
+        (You will send me later and replace this text.)
+        </p>
+        <button onclick="back()">⬅ Back</button>
+    </div>
+</div>
+
+<!-- PHOTOS -->
+<div class="page" id="box2">
+    <div class="box">
+        <h2>Your Beautiful Moments 📸</h2>
+
+        <!-- ADD HER PHOTOS -->
+        <img class="big-img" src="PHOTO1.jpg"><br><br>
+        <img class="big-img" src="PHOTO2.jpg">
+
+        <br>
+        <button onclick="back()">⬅ Back</button>
+    </div>
+</div>
+
+<!-- DIGITAL GIFT -->
+<div class="page" id="box3">
+    <div class="box">
+        <h2>🎀 Digital Gift For You 🎀</h2>
+        <p style="font-size:40px">
+            🌹 🍫 🧸 🌷 💐 ❤️
+        </p>
+        <p>Flowers, chocolates and a teddy bear just for you.</p>
+        <button onclick="back()">⬅ Back</button>
+    </div>
+</div>
+
+
+<script>
+function nextPage(num){
+    document.querySelectorAll('.page')
+        .forEach(p=>p.classList.remove('active'));
+    document.getElementById("page"+num).classList.add('active');
+}
+
+function openBox(num){
+    document.querySelectorAll('.page')
+        .forEach(p=>p.classList.remove('active'));
+    document.getElementById("box"+num).classList.add('active');
+}
+
+function back(){
+    nextPage(3);
+}
+
+/* falling petals */
+for(let i=0;i<25;i++){
+    let petal=document.createElement("div");
+    petal.className="petal";
+    petal.innerHTML="🌸";
+    petal.style.left=Math.random()*100+"vw";
+    petal.style.animationDuration=(5+Math.random()*5)+"s";
+    document.body.appendChild(petal);
+}
+</script>
+
+</body>
+</html>
 
